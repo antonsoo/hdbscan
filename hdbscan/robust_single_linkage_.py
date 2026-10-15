@@ -45,7 +45,7 @@ def _rsl_generic(X, k=5, alpha=1.4142135623730951, metric='euclidean',
                  **kwargs):
     distance_matrix = pairwise_distances(X, metric=metric, **kwargs)
 
-    mutual_reachability_ = mutual_reachability(distance_matrix, k)
+    mutual_reachability_ = mutual_reachability(distance_matrix, k, alpha)
 
     min_spanning_tree = mst_linkage_core(mutual_reachability_)
     min_spanning_tree = min_spanning_tree[np.argsort(min_spanning_tree.T[2]),

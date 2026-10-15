@@ -29,7 +29,7 @@ def test_rsl_distance_matrix():
     D = distance.squareform(distance.pdist(X))
     D /= np.max(D)
 
-    labels, tree = robust_single_linkage(D, 0.4, metric='precomputed')
+    labels, tree = robust_single_linkage(D.copy(), 0.4, metric='precomputed')
     # number of clusters, ignoring noise if present
     n_clusters_1 = len(set(labels)) - int(-1 in labels)  # ignore noise
     assert(n_clusters_1 == 2)
